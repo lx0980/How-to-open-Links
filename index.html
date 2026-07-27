@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My YouTube Reels Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #000;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #fff;
+        }
+        .header {
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            background: transparent;
+        }
+        .reels-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 400px; /* रील लुक के लिए परफेक्ट चौड़ाई */
+            padding: 10px;
+            background: transparent;
+        }
+        .reel-card {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 9 / 16; /* रील का वर्टिकल साइज */
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(255,255,255,0.1);
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">My Video Reels</div>
+
+    <div class="reels-container">
+        <!-- रील 1 (VIDEO_ID_1 की जगह अपने यूट्यूब वीडियो का कोड डालें) -->
+        <div class="reel-card">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+
+        <!-- रील 2 -->
+        <div class="reel-card">
+            <iframe src="https://youtube.com/shorts/FxXX8fo_350" allowfullscreen></iframe>
+        </div>
+
+        <!-- रील 3 -->
+        <div class="reel-card">
+            <iframe src="https://youtube.com/shorts/_x5DBqp0Suw" allowfullscreen></iframe>
+        </div>
+
+        <!-- रील 4 -->
+        <div class="reel-card">
+            <iframe src="https://youtube.com/shorts/9-JqUp_ro-I" allowfullscreen></iframe>
+        </div>
+
+        <!-- रील 5 -->
+        <div class="reel-card">
+            <iframe src="https://youtube.com/shorts/Ug6VA-xWrXA" allowfullscreen></iframe>
+        </div>
+    </div>
+
+</body>
+</html>
+    
