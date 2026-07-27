@@ -3,51 +3,166 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YouTube Shorts</title>
+<title>My Shorts</title>
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
 body{
     background:#000;
-    overflow-y:scroll;
-    scroll-snap-type:y mandatory;
+    color:#fff;
 }
 
-.reel{
+/* Header */
+.header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:#000;
+    padding:15px;
+    font-size:22px;
+    font-weight:bold;
+    text-align:center;
+}
+
+/* Grid */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    padding:12px;
+}
+
+/* Video Card */
+.video-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:15px;
+    cursor:pointer;
+    background:#111;
+}
+
+.video-card img{
     width:100%;
-    height:100vh;
-    scroll-snap-align:start;
+    aspect-ratio:9/16;
+    object-fit:cover;
+    display:block;
+    transition:.3s;
 }
 
-.reel iframe{
+.video-card:hover img{
+    transform:scale(1.05);
+}
+
+/* Title */
+.title{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:12px;
+    font-size:14px;
+    color:#fff;
+    background:linear-gradient(transparent,rgba(0,0,0,.95));
+}
+
+/* Fullscreen Player */
+#player{
+    position:fixed;
+    inset:0;
+    background:#000;
+    display:none;
+    z-index:9999;
+}
+
+#frame{
     width:100%;
     height:100%;
     border:none;
+}
+
+/* Back Button */
+.back{
+    position:absolute;
+    top:15px;
+    left:15px;
+    z-index:10000;
+    background:rgba(0,0,0,.6);
+    color:#fff;
+    border:none;
+    padding:10px 16px;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
 }
 </style>
 </head>
 <body>
 
-<div class="reel">
-    <iframe src="https://www.youtube.com/embed/Ug6VA-xWrXA" allowfullscreen></iframe>
+<div class="header">My Shorts</div>
+
+<div class="grid">
+
+    <div class="video-card" onclick="playVideo('Ug6VA-xWrXA')">
+        <img src="https://img.youtube.com/vi/Ug6VA-xWrXA/hqdefault.jpg">
+        <div class="title">Amazing Nature Views 🌿</div>
+    </div>
+
+    <div class="video-card" onclick="playVideo('FxXX8fo_350')">
+        <img src="https://img.youtube.com/vi/FxXX8fo_350/hqdefault.jpg">
+        <div class="title">Top 10 Tech Facts 🤯</div>
+    </div>
+
+    <div class="video-card" onclick="playVideo('_x5DBqp0Suw')">
+        <img src="https://img.youtube.com/vi/_x5DBqp0Suw/hqdefault.jpg">
+        <div class="title">Funny Moments Compilation 😂</div>
+    </div>
+
+    <div class="video-card" onclick="playVideo('9-JqUp_ro-I')">
+        <img src="https://img.youtube.com/vi/9-JqUp_ro-I/hqdefault.jpg">
+        <div class="title">Travel Vlog in Mountains 🏔️</div>
+    </div>
+
 </div>
 
-<div class="reel">
-    <iframe src="https://www.youtube.com/embed/FxXX8fo_350" allowfullscreen></iframe>
+<!-- Fullscreen Player -->
+<div id="player">
+
+    <button class="back" onclick="closePlayer()">← Back</button>
+
+    <iframe
+        id="frame"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+
 </div>
 
-<div class="reel">
-    <iframe src="https://www.youtube.com/embed/_x5DBqp0Suw" allowfullscreen></iframe>
-</div>
+<script>
 
-<div class="reel">
-    <iframe src="https://www.youtube.com/embed/9-JqUp_ro-I" allowfullscreen></iframe>
-</div>
+function playVideo(id){
+
+    document.getElementById("player").style.display="block";
+
+    document.getElementById("frame").src =
+    "https://www.youtube.com/embed/" + id + "?autoplay=1";
+
+}
+
+function closePlayer(){
+
+    document.getElementById("player").style.display="none";
+
+    document.getElementById("frame").src = "";
+
+}
+
+</script>
 
 </body>
 </html>
